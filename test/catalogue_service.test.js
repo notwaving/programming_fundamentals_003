@@ -19,18 +19,23 @@ describe("catalogueService", () => {
       expect(catalogueService.countBooksByFirstLetter("w")).toBe(2);
   });
 });
-describe("catalogue.Service.getQuantity",() => {
-  test("returns the quantity of items in stock by given title", () => {
-    expect(catalogueService.getQuantity("Wolf Hall")).toBe(33);
-  });  
-});
-describe("catalogue.getBooksByAuthor",() => {
-  test("returns the array of books by given author", () => {
-    expect(catalogueService.getBooksByAuthor("Charles Dickens")).toBe([
-      {title: "A Tale of Two Cities", author: "Charles Dickens", quantity: 3},
-        {title: "Oliver Twist", author: "Charles Dickens", quantity: 7},
-        {title: "Great Expectations", author: "Charles Dickens", quantity: 1},
-      ]);
+  describe("catalogue.Service.getQuantity",() => {
+    test("returns the quantity of items in stock by given title", () => {
+      expect(catalogueService.getQuantity("Wolf Hall")).toBe(33);
+    });  
+  });
+  describe("catalogue.getBooksByAuthor",() => {
+    test("returns the array of books by given author", () => {
+      expect(catalogueService.getBooksByAuthor("Charles Dickens")).toBe([
+        {title: "A Tale of Two Cities", author: "Charles Dickens", quantity: 3},
+          {title: "Oliver Twist", author: "Charles Dickens", quantity: 7},
+          {title: "Great Expectations", author: "Charles Dickens", quantity: 1},
+        ]);
+      });
+  });
+  describe("catalogue.checkQuantity",() => {
+    test("returns true if quantity is greater or equal to queried quantity", () => {
+      expect(catalogueService.checkQuantity("The Blind Assassin", 4)).toBe(true);
     });
-});
+  });
 });
