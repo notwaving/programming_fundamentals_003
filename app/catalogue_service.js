@@ -57,13 +57,16 @@ function getBooksByAuthor(author) {
   return authorCollection;
 }
 
-
 function checkQuantity(title, quantity) {
-  // Your code here
+  for(let i = 0; i < catalogue.length; i++) {
+    if(title === catalogue[i].title && quantity <= catalogue[i].quantity) {
+      return true;
+    }
+  } return false;
 }
 
 module.exports = {
-  countBooksByAuthor,
+  //countBooksByAuthor,
   checkBookByTitle,
   countBooksByFirstLetter,
   getQuantity,
