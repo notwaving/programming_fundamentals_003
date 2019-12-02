@@ -24,6 +24,18 @@ const catalogue = [
   {title: "The Origin of Species", author: "Charles Darwin", quantity: 50}
 ];
 
+function countBooksByAuthor(author) {
+  let count = 0;  
+ for(let i = 0; i < catalogue.length; i++) {
+   const match = catalogue[i];
+   // let author = 'Charles Dickens';
+   if(match.author === author) {
+     count +=1;
+   }   
+ }
+ return count;
+}
+
 function checkBookByTitle(title){
   for(let i = 0; i < catalogue.length; i++){
   if(title === catalogue[i].title) {
@@ -47,18 +59,27 @@ function getQuantity(title) {
     }
   }
 }
+
 function getBooksByAuthor(author) {
+  // Create a new array, authorCollection, to be returned at the end of the function
   let authorCollection = [];
+  // Loop through the catalogue
   for(let i = 0; i < catalogue.length; i++) {
+    // If queried author matches an author in the catalogue
     if(author === catalogue[i].author) {
-      authorCollection.push([i]);
+      // Push all the data associated with each title to authorCollection []
+      authorCollection.push(catalogue[i]);
   }
 }
+  // Return the authorCollection array
   return authorCollection;
 }
 
 function checkQuantity(title, quantity) {
+  // Loop through the object...
   for(let i = 0; i < catalogue.length; i++) {
+    /* ... until you find an exact match with the title, 
+    and quantity is greater than or equal to queried quantity*/
     if(title === catalogue[i].title && quantity <= catalogue[i].quantity) {
       return true;
     }
@@ -66,7 +87,7 @@ function checkQuantity(title, quantity) {
 }
 
 module.exports = {
-  //countBooksByAuthor,
+  countBooksByAuthor,
   checkBookByTitle,
   countBooksByFirstLetter,
   getQuantity,

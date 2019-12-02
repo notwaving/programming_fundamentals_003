@@ -26,7 +26,7 @@ describe("catalogueService", () => {
   });
   describe("catalogue.getBooksByAuthor",() => {
     test("returns the array of books by given author", () => {
-      expect(catalogueService.getBooksByAuthor("Charles Dickens")).toBe([
+      expect(catalogueService.getBooksByAuthor("Charles Dickens")).toEqual([
         {title: "A Tale of Two Cities", author: "Charles Dickens", quantity: 3},
           {title: "Oliver Twist", author: "Charles Dickens", quantity: 7},
           {title: "Great Expectations", author: "Charles Dickens", quantity: 1},
